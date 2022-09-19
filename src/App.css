@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+body{
+  background-color: rgba(18, 24, 4, 0.67);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ===== NavBar ===== */
+.ui.container.nav-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: end;
+  height: 50px;
+  padding: 15px;
+  color: bisque;
+  font-size: 1.3rem;
+}
+
+/* ===== Logo Name ===== */
+.ui.container.name-logo {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 50px;
+  padding: 25px 0;
+  color: coral;
+  font-size: 4.8rem;
+  font-family: 'Oooh Baby', cursive;
+  font-weight: 600;
+  letter-spacing: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+/* ===== Task Entry Box ===== */
+.ui.container.task-entry-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.entry-box {
+  min-width: 310px;
+  max-width: 310px;
+  min-height: 50px;
+  max-height: 50px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 3px;
+  
+}
+.entry-box-btn {
+  margin: 6px 0 0 10px;
+  height: 38px;
+  width: 80px;
+  background-color: rgb(255, 127, 80, .9);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ===== Task List ===== */
+.ui.container.task-list {
+  margin-top: 50px;
+}
+.task-box {
+  margin: 20px 0;
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-color: rgb(232, 230, 230);
+}
+.task {
+  display: inline-block;
+  padding: 20px 20px 20px 20px;
+  
+}
+.task.task-button {
+  float: right;
+}
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+ /* ===== Login Page ===== */
+.loginbox {
+  width: 350px;
+  height: 310px;
+  margin: 150px auto;
+  border: solid;
+  border-width: .3px;
+  border-color: coral;
+  border-radius: 5px;
+}
+.login-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  color: coral;
+  font-family: 'Oooh Baby', cursive;
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+}
+.ui.form.login {
+  color: red;
+  padding: 25px 15px 0 15px;
+}
+.ui.form .field>label {
+  color: coral;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+.ui.form .login.button {
+  width: 150px;
+  margin: 18px 8px 0 8px;
+  color: coral;
+}
+.error.hidden {
+  visibility: hidden;
+}
+.error {
+  font-size: 1.2rem;
+  color: red;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
