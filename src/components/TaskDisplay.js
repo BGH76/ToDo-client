@@ -10,7 +10,6 @@ const TaskDisplay = (props) => {
         async function getData() {
           try {
             const response = await httpGetUserTask();
-            console.log(response);
             setList(response);
             setTask(response[0].taskList)
           } catch(e) {

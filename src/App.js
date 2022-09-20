@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
+
 import './App.css';
 
 function App() {
@@ -10,8 +12,9 @@ function App() {
     <React.Fragment>
       <BrowserRouter>
         <Routes>
-          <Route path='/home' exact element={<Home />} />
           <Route path='/' exact element={<Login />} />
+          <Route path='/home' exact element={<Home />} />
+          <Route path='/register' exact element={<Register />} />
         </Routes>
       </BrowserRouter>
     </React.Fragment>

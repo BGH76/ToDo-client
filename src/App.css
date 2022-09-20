@@ -10,6 +10,7 @@ body{
   padding: 15px;
   color: bisque;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 /* ===== Logo Name ===== */
@@ -120,4 +121,15 @@ h3 {
   color: red;
   font-weight: 400;
   letter-spacing: 1px;
+}
+
+/* ===== Register ===== */
+.registerbox {
+  width: 350px;
+  height: 610px;
+  margin: 150px auto;
+  border: solid;
+  border-width: .3px;
+  border-color: coral;
+  border-radius: 5px;
 }
