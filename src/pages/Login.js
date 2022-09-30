@@ -14,20 +14,16 @@ const Login = () => {
         e.preventDefault();
         if(username === '' || password === '') return;
         const response = await httpUserLogin(username, password);
-        switch(response.status) {
-            case "true":
-                localStorage.setItem('userId', response.userId);
-                navigate('/home');
-                break;
-            case "invalidPassword":
-                setLoginError('');
-                localStorage.removeItem('userId') // Remove after testing
-                break;
-            case "invalidUsername" :
-                setLoginError('');
-                break;
-            default:
-                console.log("Something went wrong");
+        if(response.status === true) {
+            localStorage.setItem('userId', response.userId);
+            navigate('/home')
+        } 
+        else if(response.status === false) {
+            setLoginError('');
+            localStorage.removeItem('userId')
+        }
+        else {
+            console.log("Something went wrong")
         }
     }
 
@@ -47,7 +43,7 @@ const Login = () => {
                 </div>
                 <div className="field">
                     <label>Password</label>
-                    <input type="text" name="password" value={`${password}`} onChange={(e)=>setPassword(e.target.value)} onFocus={()=>setLoginError('hidden')} placeholder="Password" />
+                    <input type="password" name="password" value={`${password}`} onChange={(e)=>setPassword(e.target.value)} onFocus={()=>setLoginError('hidden')} placeholder="Password" />
                 </div>
                 <div className={`error ${loginError}`}>
                     Invalid username or password

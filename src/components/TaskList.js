@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from "react";
 import Task from "./Task";
+import AddNewTask from "../components/AddNewTask";
 
 import { httpGetUserTask } from "../httpActions";
 
 const TaskList = () => {
 
-    const[list, setList] = useState([]);
+    // const[list, setList] = useState([]);
     const[task, setTask] = useState([]);
-
+    const[refresh, setRefresh] = useState(false) 
     useEffect(() => {
         async function getData() {
           try {
-            const response = await httpGetUserTask(); // Right now method is getting data for userId 1 only
-            setList(response);
+            const response = await httpGetUserTask();
+            // setList(response);
             setTask(response[0].taskList)
+            // console.log(response)
           } catch(e) {
             console.log(e);
           }
         }
         getData();
-      },[]);
+      },[refresh]);
+
+      const refreshPage = () => {
+        refresh === true ? setRefresh(false) : setRefresh(true)
+      }
 
       const renderList = () => {
         if(!task) return;
         try {
           return task.map((t) => {
             return (
-              <Task key={t.id} name='Brian' task={t.task} />
+              <Task key={t.id} name='Brian' task={t.task} id={t.id} complete={t.complete} date={t.date_task_created} />
             );
           })
         } catch(e) {
@@ -34,9 +40,13 @@ const TaskList = () => {
         }
       }
 
-      return (
+      return (  
         <div className="ui container task-list">
-            {renderList()}
+          <AddNewTask refresh={refresh} setRefresh={setRefresh}/>
+          <div className="refresh-page-button">
+            <button className="btn-refresh" onClick={()=>refreshPage()}>Refresh List</button>
+          </div>
+          {renderList()}
         </div>
       );
 }

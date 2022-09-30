@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { httpAddNewTaskToUser } from "../httpActions";
 
-const AddNewTask = () => {
+const AddNewTask = ({refresh, setRefresh}) => {
+    const [newTask, setNewTask] = useState('');
+
+    const submitNewTask = async () => {
+        if(newTask === '') return;
+        await httpAddNewTaskToUser(newTask);
+        refresh === true ? setRefresh(false) : setRefresh(true);
+    }
 
     return(
         <div className="ui container task-entry-box">
             <form>
-                <textarea className="entry-box" placeholder="Enter Task"></textarea>
+                <textarea className="entry-box" value={`${newTask}`} onChange={(e)=>setNewTask(e.target.value)} placeholder="Enter Task"></textarea>
             </form>
-            <button className="entry-box-btn">submit</button>
+            <button className="entry-box-btn" onClick={()=>submitNewTask()}>submit</button>
             
         </div>
     );
