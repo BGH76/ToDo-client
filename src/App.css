@@ -71,9 +71,7 @@ body{
 .task.task-button {
   float: right;
 }
-.complete {
-  background-color: green;
-}
+
 h3 {
   font-family: 'Montserrat', sans-serif;
 }

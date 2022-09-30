@@ -5,7 +5,6 @@ import { httpTaskComplete } from "../httpActions";
 
 const Task = (props) => {
 
-    const [complete, setComplete] = useState('')
     const [iconColor, setIconColor] = useState('green')
 
     useEffect(() => {
@@ -22,7 +21,7 @@ const Task = (props) => {
 
     const taskComplete = async () => {
         await httpTaskComplete(props.id)
-        setComplete('complete')
+        props.refresh === true ? props.setRefresh(false) : props.setRefresh(true)
     }
 
     return (
@@ -31,7 +30,7 @@ const Task = (props) => {
                 <h3>{props.task}</h3>
             </div>
             <div className="task task-button">
-            <button className={`${complete}`} onClick={()=>taskComplete()}>complete</button>
+            <button onClick={()=>taskComplete()}>complete</button>
             </div>
             <div className="task task-button">
                 <i className={`bell icon ${iconColor}`}></i>

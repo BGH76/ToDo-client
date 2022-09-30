@@ -32,7 +32,16 @@ const TaskList = () => {
         try {
           return task.map((t) => {
             return (
-              <Task key={t.id} name='Brian' task={t.task} id={t.id} complete={t.complete} date={t.date_task_created} />
+              <Task 
+                key={t.id}
+                name='Brian'
+                task={t.task}
+                id={t.id}
+                complete={t.complete}
+                date={t.date_task_created}
+                refresh={refresh}
+                setRefresh={setRefresh} 
+              />
             );
           })
         } catch(e) {

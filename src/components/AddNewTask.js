@@ -8,6 +8,7 @@ const AddNewTask = ({refresh, setRefresh}) => {
         if(newTask === '') return;
         await httpAddNewTaskToUser(newTask);
         refresh === true ? setRefresh(false) : setRefresh(true);
+        setNewTask('');
     }
 
     return(
