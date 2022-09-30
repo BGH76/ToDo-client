@@ -52,9 +52,6 @@ const TaskList = () => {
       return (  
         <div className="ui container task-list">
           <AddNewTask refresh={refresh} setRefresh={setRefresh}/>
-          <div className="refresh-page-button">
-            <button className="btn-refresh" onClick={()=>refreshPage()}>Refresh List</button>
-          </div>
           {renderList()}
         </div>
       );

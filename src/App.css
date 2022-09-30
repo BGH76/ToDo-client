@@ -75,13 +75,6 @@ body{
 h3 {
   font-family: 'Montserrat', sans-serif;
 }
-.refresh-page-button {
-  display: flex;
-  justify-content: end;
-}
-.btn-refresh {
-  border-radius: 3px;
-}
 
  /* ===== Login Page ===== */
 .loginbox {
